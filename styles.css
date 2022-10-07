@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    background-image: url('/images/empty-red-brick-wall.jpg');
+    background-size: 100%;
+}
+
+header {
+    height: 10vh;
+    width: 100%;
+    z-index: 1;
+}
+
+main {
+    position: relative;
+    height: 80vh;
+    width: clamp(800px,60vw,1200px);
+    background-image: url(/images/wood.jpeg);
+    background-size: 100%;
+    box-shadow: -80px -5px 10px 5px rgba(39, 18, 0, 0.863);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow:hidden ;
+}
+
+footer {
+    height: 10vh;
+    width: 100%;
+}
+
+.shelf {
+    position: relative;
+    height: 30%;
+    width: clamp(750px,55vw,1100px);
+    background-color: rgb(126, 87, 62);
+    mix-blend-mode: multiply;
+    box-shadow: inset -80px 0 50px 30px rgb(0, 0, 0);
+    display: flex;
+    align-items: flex-end;
+    gap:5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow: hidden;
+}
+
+.book {
+    width: clamp(calc(750px/20),calc(55vw/20),calc(1100px/20));
+    height: 80%;
+    background-image: url(/images/book.jpg);
+    background-size: cover;
+    box-shadow: -5px 0px 5px 0px black;
+    padding: 5px 0px 5px 0px;
+}
+
+p {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    color: rgb(255, 227, 204);
+    font-size: 2.5vh;
+    margin: auto;
+}
+
+#sensor {
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    width: clamp(16px,calc(2.5vw - 4px),46px);
+    height: 5%;
+    transform: translate(0, -50%);
+    background-color: rgb(90, 77, 70);
+    background-image: url(/images/fingerprint.png);
+    background-repeat: no-repeat;
+    background-size: 80% 90%;
+    background-position: center;
+    border-style: none;
+    box-shadow: inset 0 0 1px 2px rgba(0, 0, 0, 0.411);
+}
+
+#sensor:hover {
+    box-shadow: inset 0 0 1px 2px rgb(13, 75, 1);
+    background-color: rgb(51, 128, 0);
+}
+
+#sensor:active {
+    box-shadow: inset 0 0 1px 2px rgb(17, 102, 0);
+    background-color: rgb(67, 167, 0);
+}
+
+div>.console-open {
+    width: 60%;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(17, 17, 17);
+    box-shadow: inset 0 0 5px 3px ;
+    border-right: 10px solid rgb(211, 197, 197);
+}
+
+.console-closed {
+    width: 60%;
+    transition: ease-in 1.95s;
+    z-index: 1;
+    position: absolute;
+    left: -70%;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(17, 17, 17);
+    box-shadow: inset 0 0 5px 3px ;
+    border-right: 10px solid rgb(211, 197, 197);
+}
