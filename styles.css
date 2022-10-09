@@ -75,13 +75,14 @@ footer {
 }
 
 .book {
-    width: clamp(calc(750px/20),calc(55vw/20),calc(1100px/20));
+    width: clamp(calc(750px/29.2),calc(55vw/28.5),calc(1100px/29.2));
     height: 80%;
     background-image: url('./images/book.jpg');
     background-size: cover;
     box-shadow: -5px 0px 5px 0px black;
     padding: 5px 0px 5px 0px;
     z-index: 1;
+    flex-shrink: 0;
 }
 
 .book > p {
