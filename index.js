@@ -4,7 +4,8 @@ const addBook = document.querySelector('#add-book');
 const addBookForm = document.querySelector('#add-book-form');
 const addButton = document.querySelector('#add');
 const shelf1 = document.querySelector('#shelf-1');
-const bookSearch = document.querySelector('#book-search')
+const bookSearch = document.querySelector('#book-search');
+const search = document.querySelector('#search');
 
 
 const booksStorage = [];
@@ -35,6 +36,8 @@ function consoleRun() {
         console.classList.add("console-open"); 
         beep.play();
         screenSound.play();
+        search.classList.add("search-input-closed");
+        search.classList.remove("search-input-open");
     }
    
 }
@@ -79,11 +82,22 @@ addBookForm.addEventListener('submit', (e) => {
     let readStatus = document.querySelector('input[name="status"]:checked').value;
     const newBook = new book(title, author, bookmark, readStatus);
     booksStorage.push(newBook);
-    let index = booksStorage.indexOf(newBook)
-    const newBookSlot = document.getElementById(index)
+    let index = booksStorage.indexOf(newBook);
+    const newBookSlot = document.getElementById(index);
     newBookSlot.innerHTML = `<div class="book"><p>${newBook.title}</p></div>`;
 })
 
 
+
+function showSearch() {
+    var beep = new Audio('./sounds/beep.mp3');
+    var screenSound = new Audio('./sounds/screen.mp3')
+    search.classList.remove("search-input-closed");
+    search.classList.add("search-input-open");
+    search.select();
+    console.classList.remove('console-open')
+        beep.play();
+        screenSound.play();
+}
 
 

@@ -9,7 +9,9 @@
     <title>Library</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <input type="search" autocomplete="off" name="search" id="search" class="search-input-closed" oninput="highlightSearch()" placeholder="Example: Malazan Book Of The Fallen......">
+    </header>
     <main>
         <button id="sensor" onclick="consoleRun()"></button>
         <div id="shelf-1"class="shelf">
@@ -40,15 +42,15 @@
                     <form id="add-book-form" class="add-book-form-closed" action="submit" method="POST" action="#"> 
                         <div>
                             <label for="title">Title</label>
-                            <input id="title"type="text">
+                            <input id="title"type="text" autocomplete="off" maxlength="34">
                         </div>
                         <div>
                             <label for="author">Author</label>
-                            <input id="author" type="text">
+                            <input id="author" type="text" autocomplete="off">
                         </div>
                         <div>
                             <label for="bookmark">Bookmark</label>
-                            <input id="bookmark" type="number">
+                            <input id="bookmark" type="number" autocomplete="off">
                         </div>
                         <div class="status">
                             <p id="radio-label">Read</p>
@@ -66,8 +68,7 @@
                     <button id="add" class="add-button-closed" onclick="AddToCollection()">Add to</br>collection</button>
                 </div>         
                 <div id="book-search" class="book-search-open">
-                    <label for="search" class="search-label">Book search</label>
-                    <input type="search" name="search" id="search" class="search-input">
+                    <button class="search-label" onclick="showSearch()">Book</br>search</button>
                 </div>  
             </div>
             <div id="21" class="book-slot"></div>
