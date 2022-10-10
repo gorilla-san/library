@@ -4,6 +4,7 @@ const addBook = document.querySelector('#add-book');
 const addBookForm = document.querySelector('#add-book-form');
 const addButton = document.querySelector('#add');
 const shelf1 = document.querySelector('#shelf-1');
+const bookSearch = document.querySelector('#book-search')
 
 
 const booksStorage = [];
@@ -47,6 +48,11 @@ function AddToCollection () {
         addButton.classList.add('add-button-closed');
         addButton.classList.remove('add-button-open');
         addButton.innerHTML = "Add to </br> collection";
+        setTimeout(()=>{
+            bookSearch.classList.add("book-search-open");
+            bookSearch.classList.remove("book-search-closed");
+        }, 1100)
+
     }
     else {
         addBook.classList.remove("add-book-closed");
@@ -60,7 +66,8 @@ function AddToCollection () {
             addBookForm.classList.remove('add-book-form-closed')
             addBookForm.classList.add('add-book-form-open')
         }, 1100);
-
+        bookSearch.classList.remove("book-search-open");
+        bookSearch.classList.add("book-search-closed");
     }
 }
 
@@ -72,9 +79,11 @@ addBookForm.addEventListener('submit', (e) => {
     let readStatus = document.querySelector('input[name="status"]:checked').value;
     const newBook = new book(title, author, bookmark, readStatus);
     booksStorage.push(newBook);
-    shelf1.innerHTML+= `<div class="book"><p>${newBook.title}</p></div>`;
-    console.log(newBook);
+    let index = booksStorage.indexOf(newBook)
+    const newBookSlot = document.getElementById(index)
+    newBookSlot.innerHTML = `<div class="book"><p>${newBook.title}</p></div>`;
 })
+
 
 
 
