@@ -78,6 +78,7 @@ footer {
 }
 
 .book-slot {
+    color: var(--font-color);
     z-index: 0;
     flex-basis: 1 1 1;
     height: 80%;
@@ -103,7 +104,6 @@ footer {
     height: 90%;
     width: 80%;
     writing-mode: vertical-rl;
-    color: var(--font-color);
     font-size: 1.5vh;
     padding: 0;
     overflow: hidden;

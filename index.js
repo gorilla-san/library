@@ -101,3 +101,28 @@ function showSearch() {
 }
 
 
+function highlightSearch() {
+    let searchTerm = search.value;
+    let previousId = "empty"
+    let bookSlot
+    let index = booksStorage.findIndex(function(newBook){
+        return newBook.title === searchTerm;
+    })
+    if (index === -1 && previousId !== "empty") {
+        bookSlot = document.getElementById(previousId);
+        bookSlot.style = "color: var(--font-color); text-shadow: none;"
+    }
+    else if (index !== -1 && previousId !== "empty") {
+        bookSlot.style = "color: var(--font-color); text-shadow: none;"
+        bookSlot = document.getElementById(index);
+        bookSlot.style = "color: red; text-shadow: 0 0 2px 2px brightred;";
+        previousId = index;
+    }
+    else if (index!== -1) {
+        bookSlot = document.getElementById(index);
+        bookSlot.style = "color: red; text-shadow: 0 0 2px 2px brightred;";
+        previousId = index;
+    }
+
+
+}
