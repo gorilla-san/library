@@ -6,7 +6,7 @@ const addButton = document.querySelector('#add');
 const shelf1 = document.querySelector('#shelf-1');
 const bookSearch = document.querySelector('#book-search');
 const search = document.getElementById('search');
-
+// const books = document.querySelectorAll('.book');
 
 
 const booksStorage = [];
@@ -107,6 +107,7 @@ addBookForm.addEventListener('submit', (e) => {
         newBookSlot.innerHTML = `<div class="book"><p>${newBook.title}</p></div>`;
         var bookSlideIn = new Audio('./sounds/bookSlideIn.mp3');
         bookSlideIn.play();
+        addBookForm.reset()
     }
 })
 
@@ -158,6 +159,12 @@ function highlightSearch() {
         console.log(`This is PID in 3rd else if: ${previousId}`);
         return previousId;
     }
-
-
 }
+
+
+document.addEventListener('mousedown', (e) => {
+        if(e.target && e.target.classList.contains('book')){
+                alert(`${booksStorage[e.target.parentElement.id].title}\n${booksStorage[e.target.parentElement.id].author}\n${booksStorage[e.target.parentElement.id].bookmark}\n${booksStorage[e.target.parentElement.id].readStatus}`)
+         }
+})
+

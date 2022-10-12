@@ -112,6 +112,8 @@ footer {
 }
 
 .book > p {
+    cursor: pointer;
+    pointer-events: none;
     box-sizing: content-box;
     height: 90%;
     width: 80%;

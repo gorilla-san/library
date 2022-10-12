@@ -43,7 +43,7 @@
                     <form id="add-book-form" class="add-book-form-closed" action="submit" method="POST" action="#"> 
                         <div>
                             <label for="title">Title</label>
-                            <input id="title"type="text" autocomplete="off" maxlength="34">
+                            <input id="title"type="text" autocomplete="off" maxlength="34" required> 
                         </div>
                         <div>
                             <label for="author">Author</label>
@@ -57,9 +57,9 @@
                             <p id="radio-label">Read</p>
                             <div class="radio-buttons">
                                 <label for="yes">Yes</label>
-                                <input id="yes" type="radio" name="status" value="Read">
+                                <input id="yes" type="radio" name="status" value="Read" required>
                                 <label for="no">No</label>
-                                <input id="no" type="radio" name="status" value="Unread">
+                                <input id="no" type="radio" name="status" value="Unread" required>
                             </div>
                         </div>
                         <div>
