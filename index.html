@@ -11,6 +11,7 @@
 <body>
     <header>
         <input type="search" autocomplete="off" name="search" id="search" class="search-input-closed" oninput="highlightSearch()" placeholder="Example: Malazan Book Of The Fallen......">
+        <button id="fullDemo" onclick="fillOut()">Demo</button>
     </header>
     <main>
         <button id="sensor" onclick="consoleRun()"></button>
@@ -71,6 +72,7 @@
                     <button class="search-label" onclick="showSearch()">Book</br>search</button>
                 </div>  
             </div>
+            <div id="20" class="book-slot"></div>
             <div id="21" class="book-slot"></div>
             <div id="22" class="book-slot"></div>
             <div id="23" class="book-slot"></div>
@@ -90,9 +92,9 @@
             <div id="37" class="book-slot"></div>
             <div id="38" class="book-slot"></div>
             <div id="39" class="book-slot"></div>
-            <div id="40" class="book-slot"></div>
         </div>
         <div class="shelf shelf-3">
+            <div id="40" class="book-slot"></div>
             <div id="41" class="book-slot"></div>
             <div id="42" class="book-slot"></div>
             <div id="43" class="book-slot"></div>
@@ -112,7 +114,6 @@
             <div id="57" class="book-slot"></div>
             <div id="58" class="book-slot"></div>
             <div id="59" class="book-slot"></div>
-            <div id="60" class="book-slot"></div>
         </div>
     </main>
     <footer></footer>    

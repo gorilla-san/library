@@ -5,6 +5,18 @@
     font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace; 
 }
 
+#fullDemo {
+    position: fixed;
+    left: 0.5%;
+    top:0.5%;
+    width: 5vw;
+    height: 5vh;
+    background-color: var(--black-font-color);
+    border: none;
+    color: var(--font-color);
+    font-size: 20px;
+}
+
 :root {
     --font-color: rgb(219, 219, 219);    
     --black-font-color: rgb(26, 26, 26);

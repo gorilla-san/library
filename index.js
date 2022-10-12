@@ -21,6 +21,19 @@ class book {
 
 
 
+function fillOut () {
+    const demoTitles = ['Gardens of the Moon', 'Deadhouse Gates', 'Memories of Ice', 'House of Chains', 'Midnight Tides', 'The Bonehunters', "Reaper's Gale", 'Toll the Hounds', 'Dust of Dreams', 'The Crippled God', 'Night of Knives', 'Return of the Crimson Guard', 'Stonewielder', 'Orb Sceptre Throne', 'Blood and Bone', 'Assail', 'The God is Not Willing', 'No Life Forsaken'];
+    let i;
+    for (i=0; i<=17; i++) {
+        const newBook = new book(demoTitles[i], 'Steven Erikson', '1000', 'Read');
+        booksStorage.push(newBook);
+        let index = booksStorage.indexOf(newBook);
+        const newBookSlot = document.getElementById(index);
+        newBookSlot.innerHTML = `<div class="book"><p>${newBook.title}</p></div>`;
+    }
+}
+
+
 function consoleRun() {
     var beep = new Audio('./sounds/beep.mp3');
     var screenSound = new Audio('./sounds/screen.mp3')
@@ -75,19 +88,26 @@ function AddToCollection () {
     }
 }
 
+
 addBookForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    let title = document.querySelector('#title').value;
-    let author = document.querySelector('#author').value;
-    let bookmark = document.querySelector('#bookmark').value;
-    let readStatus = document.querySelector('input[name="status"]:checked').value;
-    const newBook = new book(title, author, bookmark, readStatus);
-    booksStorage.push(newBook);
-    let index = booksStorage.indexOf(newBook);
-    const newBookSlot = document.getElementById(index);
-    newBookSlot.innerHTML = `<div class="book"><p>${newBook.title}</p></div>`;
-    var bookSlideIn = new Audio('./sounds/bookSlideIn.mp3');
-    bookSlideIn.play();
+    if (booksStorage.length>=60) {
+        alert("It's full mate");
+    }
+
+    else {
+        let title = document.querySelector('#title').value;
+        let author = document.querySelector('#author').value;
+        let bookmark = document.querySelector('#bookmark').value;
+        let readStatus = document.querySelector('input[name="status"]:checked').value;
+        const newBook = new book(title, author, bookmark, readStatus);
+        booksStorage.push(newBook);
+        let index = booksStorage.indexOf(newBook);
+        const newBookSlot = document.getElementById(index);
+        newBookSlot.innerHTML = `<div class="book"><p>${newBook.title}</p></div>`;
+        var bookSlideIn = new Audio('./sounds/bookSlideIn.mp3');
+        bookSlideIn.play();
+    }
 })
 
 
@@ -114,7 +134,6 @@ function highlightSearch() {
     index = parseInt(booksStorage.findIndex(function(newBook){
         return newBook.title.toLowerCase() === search.value.toLowerCase();
     }));
-    // var previousId = '';
     let bookSlot;
     console.log(`this is index: ${index}`);
     if (index === -1 && typeof(previousId) === 'number') {
