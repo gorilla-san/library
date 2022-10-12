@@ -1,11 +1,12 @@
-const console = document.querySelector("#console");
+const notConsole = document.querySelector("#notConsole");
 const sensor = document.querySelector("#sensor");
 const addBook = document.querySelector('#add-book');
 const addBookForm = document.querySelector('#add-book-form');
 const addButton = document.querySelector('#add');
 const shelf1 = document.querySelector('#shelf-1');
 const bookSearch = document.querySelector('#book-search');
-const search = document.querySelector('#search');
+const search = document.getElementById('search');
+
 
 
 const booksStorage = [];
@@ -27,13 +28,13 @@ function consoleRun() {
     beep.currentTime = 0;
     screenSound.pause();
     screenSound.currentTime = 0;
-    if (console.classList.contains("console-open")) {
-        console.classList.remove('console-open')
+    if (notConsole.classList.contains("console-open")) {
+        notConsole.classList.remove('console-open')
         beep.play();
         screenSound.play();
     }
     else {
-        console.classList.add("console-open"); 
+        notConsole.classList.add("console-open"); 
         beep.play();
         screenSound.play();
         search.classList.add("search-input-closed");
@@ -85,6 +86,8 @@ addBookForm.addEventListener('submit', (e) => {
     let index = booksStorage.indexOf(newBook);
     const newBookSlot = document.getElementById(index);
     newBookSlot.innerHTML = `<div class="book"><p>${newBook.title}</p></div>`;
+    var bookSlideIn = new Audio('./sounds/bookSlideIn.mp3');
+    bookSlideIn.play();
 })
 
 
@@ -95,33 +98,46 @@ function showSearch() {
     search.classList.remove("search-input-closed");
     search.classList.add("search-input-open");
     search.select();
-    console.classList.remove('console-open')
+    notConsole.classList.remove('console-open')
         beep.play();
         screenSound.play();
 }
 
 
+
+
+let index;
+let previousId;
+
+
 function highlightSearch() {
-    let searchTerm = search.value;
-    let previousId = "empty"
-    let bookSlot
-    let index = booksStorage.findIndex(function(newBook){
-        return newBook.title === searchTerm;
-    })
-    if (index === -1 && previousId !== "empty") {
+    index = parseInt(booksStorage.findIndex(function(newBook){
+        return newBook.title.toLowerCase() === search.value.toLowerCase();
+    }));
+    // var previousId = '';
+    let bookSlot;
+    console.log(`this is index: ${index}`);
+    if (index === -1 && typeof(previousId) === 'number') {
         bookSlot = document.getElementById(previousId);
-        bookSlot.style = "color: var(--font-color); text-shadow: none;"
+        bookSlot.style = "color: var(--font-color); text-shadow: none;";
+        console.log(`Lazar Was here`)
     }
-    else if (index !== -1 && previousId !== "empty") {
-        bookSlot.style = "color: var(--font-color); text-shadow: none;"
+    else if (index !== -1 && typeof(previousId) === 'number') {
+        bookSlot = document.getElementById(previousId);
+        bookSlot.style = "color: var(--font-color); text-shadow: none;";
         bookSlot = document.getElementById(index);
         bookSlot.style = "color: red; text-shadow: 0 0 2px 2px brightred;";
         previousId = index;
+        console.log(`this is PId in 2nd else if: ${previousId}`);
+        return previousId;
     }
     else if (index!== -1) {
         bookSlot = document.getElementById(index);
         bookSlot.style = "color: red; text-shadow: 0 0 2px 2px brightred;";
+        console.log(`This is Index in else if#3 ${index}`);
         previousId = index;
+        console.log(`This is PID in 3rd else if: ${previousId}`);
+        return previousId;
     }
 
 
