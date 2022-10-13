@@ -5,6 +5,54 @@
     font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace; 
 }
 
+html::before {
+    z-index: 0;
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-image: url(./images/mugen.png);
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+main::before {
+    z-index: 1;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-image: url(./images/light.png);
+    mix-blend-mode:soft-light;
+    pointer-events: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 50%;
+}
+
+body::before {
+    z-index: 1;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-image: url(./images/light.png);
+    mix-blend-mode:soft-light;
+    pointer-events: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 70%;
+}
+
 #fullDemo {
     position: fixed;
     left: 0.5%;
@@ -95,7 +143,9 @@ body {
     align-items: center;
     gap: 0;
     background-image: url('./images/empty-red-brick-wall.webp');
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
 
 }
 
@@ -111,7 +161,7 @@ main {
     width: clamp(800px,60vw,1200px);
     background-image: url('./images/wood.webp');
     background-size: 100%;
-    box-shadow: -80px -5px 10px 5px rgba(39, 18, 0, 0.863);
+    box-shadow: -80px -5px 10px 5px rgba(0, 0, 0, 0.596);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -182,7 +232,7 @@ footer {
     height: 90%;
     width: 80%;
     writing-mode: vertical-rl;
-    font-size: 1.5vh;
+    font-size: max(10px, 1.5vh);
     padding: 0;
     overflow: hidden;
     display: flex;
@@ -200,7 +250,7 @@ footer {
     width: clamp(16px,calc(2.5vw - 4px),46px);
     height: 8%;
     transform: translate(0, -50%);
-    background-color: rgb(90, 77, 70);
+    background-color: rgb(150, 130, 120);
     background-image: url('./images/fingerprint.png');
     background-repeat: no-repeat;
     background-size: 80% 80%;

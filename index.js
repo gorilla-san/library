@@ -254,6 +254,21 @@ document.addEventListener('mousedown', (e) => {
                 else radioNo.checked = true;
             
             }
+
+            else if(notConsole.classList.contains("console-open") && addBookForm.classList.contains("add-book-form-closed")) {
+                AddToCollection();
+                saveInfoButton.style = "display: unset; pointer-events: unset;"
+                deleteBookButton.style = "display: unset; pointer-events: unset;"
+                addBookButton.style = "display: none; pointer-events: none;"
+                title.value = booksStorage[selectedBookId].title
+                author.value = booksStorage[selectedBookId].author
+                bookmark.value = booksStorage[selectedBookId].bookmark
+                if (booksStorage[selectedBookId].readStatus = "read") {
+                    radioYes.checked = true;
+                }
+                else radioNo.checked = true;
+
+            }
             else {
                 saveInfoButton.style = "display: unset; pointer-events: unset;"
                 deleteBookButton.style = "display: unset; pointer-events: unset;"
@@ -289,4 +304,7 @@ function deleteBook () {
         }
         else break;
     }
+        saveInfoButton.style = "display: none; pointer-events: none;";
+        deleteBookButton.style = "display: none; pointer-events: none;";
+        addBookButton.style = "display: unset; pointer-events: unset;";
 }
