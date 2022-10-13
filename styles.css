@@ -102,8 +102,13 @@ input[type=range]{
     -webkit-appearance: none;
 }
 
+.slider-width100
+{
+    width: 80% !important;
+}
+
 input[type=range]::-webkit-slider-runnable-track {
-    width: 300px;
+    width: 70%;
     height: 5px;
     background: var(--font-color);
     border: none;
