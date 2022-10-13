@@ -17,6 +17,70 @@
     font-size: 20px;
 }
 
+.backgroundPlayer {
+    position: fixed;
+    right: 0.5%;
+    top:0.5%;
+    background-color: var(--black-font-color);
+    border-radius: 5px;
+    display: flex;
+    padding: 5px 10px 5px 10px;
+    width: 10vw;
+    height: 5vh;
+    gap: 5px;
+    align-items: center;
+}
+
+.backgroundPlayer > i {
+    font-family: "fontawesome";
+    font-style: normal;
+}
+
+.fa {
+    color: var(--font-color);
+}
+
+.fa:hover {
+    text-shadow: 0 0 5px red;
+}
+
+.fa:active {
+    text-shadow: 0 0 5px red;
+}
+
+
+/* this is copy pasta beginning*/
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: var(--font-color);
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: var(--font-color);;
+}
+/* this is copy pasta end*/
+
 :root {
     --font-color: rgb(219, 219, 219);    
     --black-font-color: rgb(26, 26, 26);
@@ -220,6 +284,7 @@ div>.console-open {
 
 input {
     background-color: var(--font-color);
+    border: none;
 }
 
 label {
