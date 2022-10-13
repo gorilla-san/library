@@ -8,8 +8,10 @@ const bookSearch = document.querySelector('#book-search');
 const search = document.getElementById('search');
 const addBookButton = document.getElementById('addBookButton');
 const saveInfoButton = document.getElementById('saveInfoButton');
+const deleteBookButton = document.getElementById('deleteBookButton');
 const radioYes = document.getElementById('yes');
 const radioNo = document.getElementById('no');
+
 
 
 
@@ -99,6 +101,8 @@ function consoleRun() {
         search.classList.remove("search-input-open");
         addBookButton.style = "display: unset; pointer-events: unset; "
         saveInfoButton.style = "display: none; pointer-events: none; "
+        deleteBookButton.style = "display: none; pointer-events: none; "
+
 
     }
    
@@ -122,6 +126,7 @@ function AddToCollection () {
     else {
         addBookForm.reset()
         saveInfoButton.style = "display: none; pointer-events: none;"
+        deleteBookButton.style = "display: none; pointer-events: none;"
         addBookButton.style = "display: unset; pointer-events: unset;"
         addBook.classList.remove("add-book-closed");
         addBook.classList.add("add-book-open");
@@ -168,7 +173,7 @@ addBookForm.addEventListener('submit', (e) => {
         console.log("I clicked SAVE button")
         const newBook = new book(title, author, bookmark, readStatus);
         booksStorage.splice(selectedBookId, 1, newBook)
-        const currentBookSlot = document.getElementById(selectedBookId);
+        let currentBookSlot = document.getElementById(selectedBookId);
         currentBookSlot.innerHTML = `<div class="book"><p>${newBook.title}</p></div>`;
     }
 
@@ -238,6 +243,7 @@ document.addEventListener('mousedown', (e) => {
                 consoleRun()
                 AddToCollection()
                 saveInfoButton.style = "display: unset; pointer-events: unset;"
+                deleteBookButton.style = "display: unset; pointer-events: unset;"
                 addBookButton.style = "display: none; pointer-events: none;"
                 title.value = booksStorage[selectedBookId].title
                 author.value = booksStorage[selectedBookId].author
@@ -250,6 +256,7 @@ document.addEventListener('mousedown', (e) => {
             }
             else {
                 saveInfoButton.style = "display: unset; pointer-events: unset;"
+                deleteBookButton.style = "display: unset; pointer-events: unset;"
                 addBookButton.style = "display: none; pointer-events: none;"
                 title.value = booksStorage[selectedBookId].title
                 author.value = booksStorage[selectedBookId].author
@@ -263,3 +270,23 @@ document.addEventListener('mousedown', (e) => {
          }
 })
 
+let x;
+let z;
+function deleteBook () {
+    booksStorage.splice(selectedBookId,1);
+    addBookForm.reset()
+    x = selectedBookId
+    console.log(`this is X${x}, this is z${z}`)
+    for (x; x<=60; x++) {
+        z = parseInt(x)+1;
+        currentBookSlot = document.getElementById(x);
+        nextBookSlot = document.getElementById(z);
+        if (nextBookSlot.childNodes.length) {
+            currentBookSlot.innerHTML = nextBookSlot.innerHTML;
+        }
+        else if (currentBookSlot.childNodes.length) {
+            currentBookSlot.innerHTML = "";
+        }
+        else break;
+    }
+}

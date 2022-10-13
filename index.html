@@ -70,9 +70,10 @@
                                 <input id="no" type="radio" name="status" value="Unread" required>
                             </div>
                         </div>
-                        <div>
+                        <div class="form-buttons">
                             <input type="submit" class="submit" value="Add" id="addBookButton">
                             <input type="submit" class="submit save" value="Save" id="saveInfoButton">
+                            <button class="submit save" id="deleteBookButton" onclick="deleteBook()">Delete</button>
                         </div>
                     </form>
                     <button id="add" class="add-button-closed" onclick="AddToCollection()">Add to</br>collection</button>
